@@ -16,7 +16,6 @@ $displayProps: ("block", "inline-block", "inline", "flex", "grid", "inline-flex"
 
 $textAlignments: ("left", "right", "center", "revert");
 
-
 @each $space in $spacing {
     @if $space==auto {
         .m-#{$space} {
