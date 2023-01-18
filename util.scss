@@ -1,3 +1,64 @@
+$textAlignments: ("left", "right", "center", "revert");
+
+@each $alignment in $textAlignments {
+  .text-#{$alignment} {
+    text-align: #{$alignment};
+  }
+}
+
+$displayProps: (
+  "block",
+  "inline-block",
+  "inline",
+  "flex",
+  "grid",
+  "inline-flex",
+  "inline-grid",
+  "table",
+  "inline-table",
+  "list-item",
+  "none",
+  "contents"
+);
+
+@each $prop in $displayProps {
+  .d-#{$prop} {
+    display: #{$prop};
+  }
+}
+
+$wraps: ("no-wrap", "wrap", "wrap-reverse");
+
+@each $wrap in $wraps {
+  .flex-#{$wrap} {
+    flex-wrap: #{$wrap};
+  }
+}
+
+$alignments: (
+  "center",
+  "space-between",
+  "space-around",
+  "space-evenly",
+  "flex-start",
+  "flex-end"
+);
+
+@each $prop in $alignments {
+  .justify-content-#{$prop} {
+    justify-content: #{$prop};
+  }
+  .justify-items-#{$prop} {
+    justify-content: #{$prop};
+  }
+  .align-content-#{$prop} {
+    align-content: #{$prop};
+  }
+  .align-items-#{$prop} {
+    align-items: #{$prop};
+  }
+}
+
 $spacing: (
   50,
   55,
@@ -183,32 +244,6 @@ $spacing: (
   auto
 );
 
-$alignments: (
-  "center",
-  "space-between",
-  "space-around",
-  "space-evenly",
-  "flex-start",
-  "flex-end"
-);
-
-$displayProps: (
-  "block",
-  "inline-block",
-  "inline",
-  "flex",
-  "grid",
-  "inline-flex",
-  "inline-grid",
-  "table",
-  "inline-table",
-  "list-item",
-  "none",
-  "contents"
-);
-
-$textAlignments: ("left", "right", "center", "revert");
-
 @each $space in $spacing {
   @if $space==auto {
     .m-#{$space} {
@@ -271,6 +306,9 @@ $textAlignments: ("left", "right", "center", "revert");
   }
 
   @if $space!=auto {
+    .m-#{$space} {
+      margin: calc(#{$space}em/100);
+    }
     .mx-#{$space} {
       margin-left: calc(#{$space}em/100);
       margin-right: calc(#{$space}em/100);
@@ -295,6 +333,9 @@ $textAlignments: ("left", "right", "center", "revert");
 
     .mt-#{$space} {
       margin-top: calc(#{$space}em/100);
+    }
+    .p-#{$space} {
+      padding: calc(#{$space}em/100);
     }
 
     .px-#{$space} {
@@ -322,35 +363,5 @@ $textAlignments: ("left", "right", "center", "revert");
     .pt-#{$space} {
       padding-top: calc(#{$space}em/100);
     }
-  }
-}
-
-@each $align in $alignments {
-  .justify-content-#{$align} {
-    justify-content: #{$align};
-  }
-
-  .align-items-#{$align} {
-    align-items: #{$align};
-  }
-
-  .justify-items-#{$align} {
-    justify-items: #{$align};
-  }
-
-  .align-content-#{$align} {
-    align-content: #{$align};
-  }
-}
-
-@each $disp in $displayProps {
-  .d-#{$disp} {
-    display: #{$disp};
-  }
-}
-
-@each $textAlign in $textAlignments {
-  .text-#{$textAlign} {
-    text-align: #{$textAlign};
   }
 }
